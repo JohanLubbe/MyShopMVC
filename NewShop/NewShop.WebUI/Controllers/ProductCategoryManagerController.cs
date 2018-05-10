@@ -11,12 +11,12 @@ namespace NewShop.WebUI.Controllers
     public class ProductCategoryManagerController : Controller
     {
         // Create an instance of Products Repository
-        ProductCategoryRepository context;
+        InMemoryRepository<ProductCategory> context;
 
         // Create a constructor
         public ProductCategoryManagerController()
         {
-            context = new ProductCategoryRepository();
+            context = new InMemoryRepository<ProductCategory>();
         }
 
         // GET: ProductManager
