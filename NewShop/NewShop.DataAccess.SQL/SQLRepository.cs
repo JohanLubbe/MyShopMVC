@@ -14,15 +14,16 @@ namespace NewShop.DataAccess.SQL
         internal DataContext context;
         internal DbSet<T> dbSet;
 
+
         public SQLRepository(DataContext context)
         {
             this.context = context;
-            this.dbSet = context.Set<T>(); // Done to set the table dynamically either product or category depending on the context
+            this.dbSet = context.Set<T>();
         }
 
         public IQueryable<T> Collection()
         {
-            return dbSet;
+            return (dbSet);
         }
 
         public void Commit()
@@ -37,7 +38,6 @@ namespace NewShop.DataAccess.SQL
             {
                 dbSet.Attach(t);
             }
-
             dbSet.Remove(t);
         }
 
