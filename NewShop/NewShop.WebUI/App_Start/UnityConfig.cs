@@ -1,7 +1,6 @@
 using NewShop.Core.Contracts;
 using NewShop.Core.Models;
 using NewShop.DataAccess.InMemory;
-using NewShop.DataAccess.SQL;
 using System;
 
 using Unity;
@@ -47,11 +46,8 @@ namespace NewShop.WebUI
             // TODO: Register your type's mappings here.
             // container.RegisterType<IProductRepository, ProductRepository>();
 
-            container.RegisterType<IRepository<Product>, SQLRepository<Product>>(); // In Memory Repositry
-            container.RegisterType<IRepository<ProductCategory>, SQLRepository<ProductCategory>>(); // In Memory Repository
-            
-            //container.RegisterType<IRepository<Product>, InMemoryRepository<Product>>(); // In Memory Repositry
-            //container.RegisterType<IRepository<ProductCategory>, InMemoryRepository<ProductCategory>>(); // In Memory Repository
+            container.RegisterType<IRepository<Product>, InMemoryRepository<Product>>();
+            container.RegisterType<IRepository<ProductCategory>, InMemoryRepository<ProductCategory>>();
 
         }
     }
